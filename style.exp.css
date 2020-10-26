@@ -1,0 +1,555 @@
+@charset "UTF-8";
+/*!                                                             
+ *                  ``....--------...``                     
+ *              `..----------------------..`                
+ *           `.------------------------------.`             
+ *         .------------------------------------.           
+ *       .----------------------------------------.         
+ *     `------------------------.```     ``..-------`       
+ *    .---------------------.`               `.------.      
+ *   .-----------------::.`     `..-:-.  -:-`  `------.     
+ *  .--------------::/:`          -////:` .--`   ------.    
+ * .------------:///-`          .///:``.` .---   `------.   
+ * `---------://///:`          .///:---....--.``  `-------   
+ * .----::////////.       ``://///-------``.---`  .-------.  
+ * ::///////////:`        .///////------``--.-`  `--------.  
+ * ////////////-      `.://////////-----` `.`  `.----------  
+ * ///////////-  ```.///////////////:-----....-------------  
+ * //////////:  `.-:////////////////////::---------------:-  
+ * -/////////` .://///////////////////////////////////////-  
+ * `////////..-://////////////////////////////////////////`  
+ * -//////:-////////////////////////////////////////////-   
+ *  ://///-////////////////////////////////////////////:    
+ *   :////:///////////////////////////////////////////:     
+ *    ://////////////////////////////////////////////-      
+ *     .////////////////////////////////////////////.       
+ *       -////////////////////////////////////////-         
+ *        `-////////////////////////////////////-           
+ *           .://////////////////////////////:.             
+ *              .-://////////////////////:-.                
+ *                  `.--://////////:--.`                    
+ * */
+/** 
+ * Theme Name: Livien Press Child Theme
+ * Theme URI: http://livienpress.com/wp-content/themes/livien-press/
+ * Version: 1.0
+ * Description: Writing Blog and services.
+ * Author: Lorenzo Colen
+ * Author URI: http://indexwebmedia.com
+ * Tags: responsive-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, featured-images, full-width-template, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready
+ * License: GNU General Public License v2
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * **/
+/*
+ * Mixin printing a linear-gradient
+ * as well as a plain color fallback
+ * and the `-webkit-` prefixed declaration
+ * @access public
+ * @param {Keyword | Angle} $direction - Linear gradient direction
+ * @param {Arglist} $color-stops - List of color-stops composing the gradient
+ *
+ * @see https://www.sitepoint.com/building-linear-gradient-mixin-sass/
+ */
+/** 
+ *
+ * ███████╗ ██████╗ ███╗   ██╗████████╗███████╗
+ * ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔════╝
+ * █████╗  ██║   ██║██╔██╗ ██║   ██║   ███████╗
+ * ██╔══╝  ██║   ██║██║╚██╗██║   ██║   ╚════██║
+ * ██║     ╚██████╔╝██║ ╚████║   ██║   ███████║
+ * ╚═╝      ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+ * **/
+@font-face {
+  font-family: futura-heavy;
+  src: url("./Fonts/futura-heavy-bt.ttf?#iefix") format("truetype"), url("./Fonts/futura-heavy-bt.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: futura-light;
+  src: url("./Fonts/futura-light-bt.ttf?#iefix") format("truetype"), url("./Fonts/futura-light-bt.ttf") format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: futura-medium;
+  src: url("./Fonts/futura-medium.ttf?#iefix") format("truetype"), url("./Fonts/futura-medium.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: gill-sans;
+  src: url("./Fonts/Gill Sans MT.ttf?#iefix") format("truetype"), url("./Fonts/Gill Sans MT.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: gill-italic;
+  src: url("./Fonts/Gill Sans MT Italic.ttf?#iefix") format("truetype"), url("./Fonts/Gill Sans MT Italic.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: gill-bold-italic;
+  src: url("./Fonts/Gill Sans MT Bold Italic.ttf?#iefix") format("truetype"), url("./Fonts/Gill Sans MT Bold Italic.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: gill-bold;
+  src: url("./Fonts/Gill Sans MT Bold.ttf?#iefix") format("truetype"), url("./Fonts/Gill Sans MT Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "futura-medium", Helvetica, Arial, Lucida, sans-serif;
+}
+
+body {
+  font-family: "gill-sans", Helvetica, Arial, Lucida, sans-serif;
+}
+
+/**                                                                                               
+ *  ██╗     ██╗███████╗████████╗    ██████╗ ██╗   ██╗██╗     ██╗     ███████╗████████╗███████╗
+ *  ██║     ██║██╔════╝╚══██╔══╝    ██╔══██╗██║   ██║██║     ██║     ██╔════╝╚══██╔══╝██╔════╝
+ *  ██║     ██║███████╗   ██║       ██████╔╝██║   ██║██║     ██║     █████╗     ██║   ███████╗
+ *  ██║     ██║╚════██║   ██║       ██╔══██╗██║   ██║██║     ██║     ██╔══╝     ██║   ╚════██║
+ *  ███████╗██║███████║   ██║       ██████╔╝╚██████╔╝███████╗███████╗███████╗   ██║   ███████║
+ *  ╚══════╝╚═╝╚══════╝   ╚═╝       ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝   ╚═╝   ╚══════╝
+ * **/
+.et_pb_module > ul > li, .et_pb_module > ul > li {
+  list-style-type: none;
+}
+.et_pb_module > ul > li::before, .et_pb_module > ul > li::before {
+  font-family: Fontawesome;
+  content: "";
+  position: absolute;
+  color: #FF619A;
+  transform: translateX(-18px);
+}
+
+#top-menu > li > ul > li:hover {
+  content: "";
+  position: absolute;
+  font: 1em Fontawesome;
+  left: 13px;
+  top: 13px;
+  color: #FF619A;
+  -webkit-transform: translateX(-50px);
+  transform: translateX(-50px);
+}
+#top-menu > li > ul > li:hover::before {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.et_mobile_menu > li {
+  position: relative;
+  overflow: hidden;
+}
+.et_mobile_menu > li:before {
+  content: "";
+  position: absolute;
+  font: 1em Fontawesome;
+  left: 13px;
+  top: 13px;
+  color: #FF619A;
+  -webkit-transform: translateX(-50px);
+  transform: translateX(-50px);
+}
+.et_mobile_menu > li:before:hover {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+/* * ██████╗ ██████╗ ██╗██████╗     ███████╗██╗     ███████╗███╗   ███╗███████╗███╗   ██╗████████╗███████╗
+ * *██╔════╝ ██╔══██╗██║██╔══██╗    ██╔════╝██║     ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+ * *██║  ███╗██████╔╝██║██║  ██║    █████╗  ██║     █████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+ * *██║   ██║██╔══██╗██║██║  ██║    ██╔══╝  ██║     ██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+ * *╚██████╔╝██║  ██║██║██████╔╝    ███████╗███████╗███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
+ * * ╚═════╝ ╚═╝  ╚═╝╚═╝╚═════╝     ╚══════╝╚══════╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝ */
+.x-grid {
+  display: grid !important;
+}
+
+/* *███████╗██╗     ███████╗██╗  ██╗    ███████╗██╗     ███████╗███╗   ███╗███████╗███╗   ██╗████████╗███████╗
+ * *██╔════╝██║     ██╔════╝╚██╗██╔╝    ██╔════╝██║     ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+ * *█████╗  ██║     █████╗   ╚███╔╝     █████╗  ██║     █████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+ * *██╔══╝  ██║     ██╔══╝   ██╔██╗     ██╔══╝  ██║     ██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+ * *██║     ███████╗███████╗██╔╝ ██╗    ███████╗███████╗███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
+ * *╚═╝     ╚══════╝╚══════╝╚═╝  ╚═╝    ╚══════╝╚══════╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝ */
+.x-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row;
+  -moz-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+}
+
+/* *██╗  ██╗███████╗ █████╗ ██████╗ ██████╗ ███████╗██████╗      █████╗ ██████╗      ██╗██╗   ██╗███████╗████████╗███╗   ███╗███████╗███╗   ██╗████████╗███████╗
+ * *██║  ██║██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗    ██╔══██╗██╔══██╗     ██║██║   ██║██╔════╝╚══██╔══╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+ * *███████║█████╗  ███████║██║  ██║██████╔╝█████╗  ██████╔╝    ███████║██║  ██║     ██║██║   ██║███████╗   ██║   ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+ * *██╔══██║██╔══╝  ██╔══██║██║  ██║██╔══██╗██╔══╝  ██╔══██╗    ██╔══██║██║  ██║██   ██║██║   ██║╚════██║   ██║   ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+ * *██║  ██║███████╗██║  ██║██████╔╝██║  ██║███████╗██║  ██║    ██║  ██║██████╔╝╚█████╔╝╚██████╔╝███████║   ██║   ██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
+ * *╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═════╝  ╚════╝  ╚═════╝ ╚══════╝   ╚═╝   ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝ */
+.x-row .x-grid {
+  grid-template: "logo social" "logo menu" ". line";
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 48% 48% 4%;
+}
+
+.x-grid .et_pb_menu {
+  width: 100%;
+}
+
+.et_pb_divider_0_tb_header {
+  margin-top: -10px;
+}
+
+@media all and (max-width: 980px) {
+  .x-header .x-row {
+    width: 100%;
+  }
+
+  .et_pb_divider_0_tb_header {
+    margin-top: 0px;
+  }
+
+  .et_pb_menu__wrap .mobile_menu_bar {
+    -webkit-transform: translate(6px, 3%);
+    -ms-transform: translate(6px, 3%);
+    transform: translate(6px, 3%);
+    /* border: 2px solid */
+  }
+}
+@media all and (max-width: 767px) {
+  .x-header .x-row .et_pb_column_0_tb_header {
+    width: 100%;
+  }
+
+  .x-row .x-grid {
+    grid-template-columns: 40% 60%;
+  }
+
+  .et_pb_divider_0_tb_header {
+    margin-top: -10px;
+  }
+}
+/* *████████╗ ██████╗  ██████╗  ██████╗ ██╗     ███████╗███████╗    ███████╗██╗     ███████╗███╗   ███╗███████╗███╗   ██╗████████╗███████╗
+ * *╚══██╔══╝██╔═══██╗██╔════╝ ██╔════╝ ██║     ██╔════╝██╔════╝    ██╔════╝██║     ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+ * *   ██║   ██║   ██║██║  ███╗██║  ███╗██║     █████╗  ███████╗    █████╗  ██║     █████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+ * *   ██║   ██║   ██║██║   ██║██║   ██║██║     ██╔══╝  ╚════██║    ██╔══╝  ██║     ██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+ * *   ██║   ╚██████╔╝╚██████╔╝╚██████╔╝███████╗███████╗███████║    ███████╗███████╗███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
+ * *   ╚═╝    ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝    ╚══════╝╚══════╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝ */
+/* TOGGLES SHADOW */
+.x-toggles {
+  -webkit-box-shadow: 0 10px 60px -20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 60px -20px rgba(0, 0, 0, 0.2);
+}
+
+.et_pb_toggle_open .et_pb_toggle_title:before {
+  display: block !important;
+  content: "";
+}
+
+.et_pb_accordion_0.et_pb_accordion .et_pb_accordion_item {
+  -webkit-transition: all 200ms ease-in-out 0s;
+  -o-transition: all 200ms ease-in-out 0s;
+  transition: all 200ms ease-in-out 0s;
+}
+
+/* TOGGLES BACKGROUND FILTER OPEN */
+.et_pb_accordion_item.et_pb_toggle.et_pb_toggle_open {
+  background-blend-mode: multiply;
+  -webkit-transition: all 200ms ease-in-out 0s;
+  -o-transition: all 200ms ease-in-out 0s;
+  transition: all 200ms ease-in-out 0s;
+}
+
+/* TOGGLES BACKGROUND FILTER CLOSED */
+.et_pb_accordion_0 .et_pb_toggle_close::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 10%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+@media all and (max-width: 980px) {
+  .x-testimonial .x-flex {
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+  .x-testimonial .x-flex .et_pb_blurb {
+    width: 45%;
+  }
+}
+@media all and (max-width: 767px) {
+  .x-testimonial .x-flex {
+    -webkit-flex-flow: column;
+    -moz-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+  }
+  .x-testimonial .x-flex .et_pb_blurb {
+    width: 100%;
+  }
+}
+/* *████████╗███████╗███████╗████████╗██╗███╗   ███╗ ██████╗ ███╗   ██╗██╗ █████╗ ██╗         ███████╗███████╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗
+ * *╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██║████╗ ████║██╔═══██╗████╗  ██║██║██╔══██╗██║         ██╔════╝██╔════╝██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+ * *   ██║   █████╗  ███████╗   ██║   ██║██╔████╔██║██║   ██║██╔██╗ ██║██║███████║██║         ███████╗█████╗  ██║        ██║   ██║██║   ██║██╔██╗ ██║
+ * *   ██║   ██╔══╝  ╚════██║   ██║   ██║██║╚██╔╝██║██║   ██║██║╚██╗██║██║██╔══██║██║         ╚════██║██╔══╝  ██║        ██║   ██║██║   ██║██║╚██╗██║
+ * *   ██║   ███████╗███████║   ██║   ██║██║ ╚═╝ ██║╚██████╔╝██║ ╚████║██║██║  ██║███████╗    ███████║███████╗╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
+ * *   ╚═╝   ╚══════╝╚══════╝   ╚═╝   ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝╚══════╝    ╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ */
+/* TESTIMONIAL QUOTES */
+.x-testimonial::before {
+  content: "“";
+  position: absolute;
+  top: 20%;
+  left: 2%;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-weight: 300;
+  font-size: 20vw;
+  color: #77AEB7 !important;
+  z-index: 999;
+}
+.x-testimonial::after {
+  content: "„";
+  position: absolute;
+  bottom: 20%;
+  right: 2%;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-weight: 300;
+  font-size: 20vw;
+  color: #77AEB7 !important;
+  z-index: 999;
+}
+
+@media all and (max-width: 980px) {
+  .x-testimonial::before {
+    top: 12%;
+    left: 2%;
+    font-size: 40vw;
+  }
+  .x-testimonial::after {
+    bottom: 18%;
+    right: 2%;
+    font-size: 40vw;
+  }
+}
+@media all and (max-width: 767px) {
+  .x-testimonial::before {
+    top: 8%;
+    left: 2%;
+    font-size: 50vw;
+  }
+  .x-testimonial::after {
+    bottom: 18%;
+    right: 2%;
+    font-size: 50vw;
+  }
+}
+/* *██████╗  ██████╗ ███████╗████████╗███████╗    ███╗   ███╗ ██████╗ ██████╗ ██╗   ██╗██╗     ███████╗███████╗
+ * *██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝██╔════╝    ████╗ ████║██╔═══██╗██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
+ * *██████╔╝██║   ██║███████╗   ██║   ███████╗    ██╔████╔██║██║   ██║██║  ██║██║   ██║██║     █████╗  ███████╗
+ * *██╔═══╝ ██║   ██║╚════██║   ██║   ╚════██║    ██║╚██╔╝██║██║   ██║██║  ██║██║   ██║██║     ██╔══╝  ╚════██║
+ * *██║     ╚██████╔╝███████║   ██║   ███████║    ██║ ╚═╝ ██║╚██████╔╝██████╔╝╚██████╔╝███████╗███████╗███████║
+ * *╚═╝      ╚═════╝ ╚══════╝   ╚═╝   ╚══════╝    ╚═╝     ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝
+ * *                                                                                                           
+ * *█████╗                                                                                                     
+ * *╚════╝                                                                                                                                                                                                              
+ * *                                                                                                           
+ * *██████╗  ██████╗ ███████╗████████╗███████╗    ███████╗██████╗  █████╗  ██████╗██╗███╗   ██╗ ██████╗        
+ * *██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝██╔════╝    ██╔════╝██╔══██╗██╔══██╗██╔════╝██║████╗  ██║██╔════╝        
+ * *██████╔╝██║   ██║███████╗   ██║   ███████╗    ███████╗██████╔╝███████║██║     ██║██╔██╗ ██║██║  ███╗       
+ * *██╔═══╝ ██║   ██║╚════██║   ██║   ╚════██║    ╚════██║██╔═══╝ ██╔══██║██║     ██║██║╚██╗██║██║   ██║       
+ * *██║     ╚██████╔╝███████║   ██║   ███████║    ███████║██║     ██║  ██║╚██████╗██║██║ ╚████║╚██████╔╝       
+ * *╚═╝      ╚═════╝ ╚══════╝   ╚═╝   ╚══════╝    ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ */
+.et_pb_post {
+  margin-bottom: 20px;
+}
+
+/* VERTICAL ALIGNED */
+.x-vert-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  -moz-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+}
+
+/* .x-related .et_pb_salvattore_content {
+ * *@include vp-display(flex)
+ * *} */
+/* SALVATTORE FIX */
+@media all and (min-width: 981px) {
+  .et_pb_gutters3 .et_pb_column_4_4 .x-related .et_pb_blog_grid .column.size-1of3, .et_pb_gutters3.et_pb_row .et_pb_column_4_4 .x-related .et_pb_blog_grid .column.size-1of3 {
+    margin-right: 2% !important;
+  }
+}
+/* POST MODULE - EQUAL HEIGHTS */
+.x-related .et_pb_salvattore_content, .x-related .column {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 2%;
+  margin-right: 2% !important;
+}
+
+@media all and (max-width: 980px) {
+  .et_pb_gutters3 .et_pb_column_4_4 .x-related .et_pb_blog_grid .column.size-1of3 {
+    -webkit-flex-flow: column wrap;
+    -moz-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+  }
+  .et_pb_gutters3 .et_pb_column_4_4 .x-related .et_pb_blog_grid .column.size-1of3 article {
+    -webkit-flex-flow: column wrap;
+    -moz-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+  }
+}
+/* ACTIVE FIELD BORDER COLOR */
+.et_pb_contact_field .input:focus, .et_pb_contact_field .input[type=checkbox]:active + label i, .et_pb_contact_field .input[type=radio]:active + label i {
+  border: 2px solid #BFF6FF;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 10px #BFF6FF;
+  box-shadow: 0 0 10px #BFF6FF;
+}
+
+/* * ██████╗ ██████╗ ███╗   ██╗████████╗ █████╗  ██████╗████████╗    ███████╗ ██████╗ ██████╗ ███╗   ███╗
+ * *██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝    ██╔════╝██╔═══██╗██╔══██╗████╗ ████║
+ * *██║     ██║   ██║██╔██╗ ██║   ██║   ███████║██║        ██║       █████╗  ██║   ██║██████╔╝██╔████╔██║
+ * *██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██║██║        ██║       ██╔══╝  ██║   ██║██╔══██╗██║╚██╔╝██║
+ * *╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║╚██████╗   ██║       ██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
+ * * ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═╝       ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
+ * *                                                                                                     
+ * *██████╗ ███████╗███████╗███████╗████████╗███████╗                                                    
+ * *██╔══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝██╔════╝                                                    
+ * *██████╔╝█████╗  ███████╗█████╗     ██║   ███████╗                                                    
+ * *██╔══██╗██╔══╝  ╚════██║██╔══╝     ██║   ╚════██║                                                    
+ * *██║  ██║███████╗███████║███████╗   ██║   ███████║                                                    
+ * *╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝   ╚═╝   ╚══════╝ */
+.et_pb_contact .et_pb_contact_field_half {
+  width: 100% !important;
+  float: none !important;
+}
+
+.x-form .et_pb_contact_form {
+  margin-left: -2%;
+}
+.x-form .et_pb_contact_form.clearfix {
+  display: grid;
+  grid-template: "name message" "email message" "phone message" "option message" ". .";
+}
+
+/* CONTACT FORM GRID REORGANIZATION */
+@media all and (max-width: 480px) {
+  .x-form .et_pb_contact_form.clearfix {
+    width: 100%;
+    grid-template: "name" "email" "phone" "option" "message" ".";
+  }
+}
+.et_pb_contact_field_options_list {
+  display: grid;
+  grid-template: ". ." ". .";
+}
+
+/* CAPTCHA */
+.et_pb_contact p input, .et_pb_contact p textarea {
+  background-color: #ffffff;
+}
+
+.et_pb_subscribe .et_pb_contact_field input, .et_pb_subscribe .et_pb_contact_field textarea {
+  background-color: #ffffff;
+}
+
+/*  CAPTCHA ALIGNMENT */
+.et_contact_bottom_container {
+  justify-content: flex-end;
+  padding-right: 4%;
+}
+
+/* *███████╗ ██████╗  ██████╗ ████████╗███████╗██████╗ 
+ * *██╔════╝██╔═══██╗██╔═══██╗╚══██╔══╝██╔════╝██╔══██╗
+ * *█████╗  ██║   ██║██║   ██║   ██║   █████╗  ██████╔╝
+ * *██╔══╝  ██║   ██║██║   ██║   ██║   ██╔══╝  ██╔══██╗
+ * *██║     ╚██████╔╝╚██████╔╝   ██║   ███████╗██║  ██║
+ * *╚═╝      ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═╝ */
+/* FOOTER GRID */
+.x-footer .x-grid {
+  grid-template-areas: "footer-about footer-services footer-legal footer-contact footer-logo";
+  /* 	grid-template-columns: calc(100% / 5 - 5px) calc(100% / 5 - 5px) calc(100% / 5 - 5px) calc(100% / 5 - 5px) auto */
+  grid-template-columns: calc((100% - 150px) / 4) calc((100% - 150px) / 4) calc((100% - 150px) / 4) calc((100% - 150px) / 4) 150px;
+  grid-template-rows: 100%;
+  grid-gap: 5px;
+}
+.x-footer .x-grid .et_pb_text {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-end;
+}
+
+@media all and (max-width: 1079px) {
+  .x-footer {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .x-footer .x-grid {
+    grid-template-areas: "footer-about footer-services footer-legal footer-contact footer-logo";
+    grid-template-columns: calc(100% / 5 - 5px) calc(100% / 5 - 5px) calc(100% / 5 - 5px) auto 17%;
+  }
+}
+@media all and (max-width: 980px) {
+  .x-footer {
+    width: 80%;
+  }
+  .x-footer .x-grid {
+    grid-template-areas: "footer-about footer-about footer-about . . . footer-services footer-services footer-services" "footer-contact footer-contact footer-contact footer-legal footer-legal footer-legal . footer-logo footer-logo";
+    grid-template-columns: calc(100% / 9 - 5px) calc(100% / 9 - 5px) calc(100% / 9 - 5px) calc(100% / 9 - 5px) calc(100% / 9 - 5px) calc(100% / 9 - 5px) calc(100% / 9 - 5px) calc(100% / 9 - 5px) calc(100% / 9 - 5px);
+    justify-items: center;
+    grid-row-gap: 40px;
+    width: 100%;
+  }
+}
+@media all and (max-width: 767px) {
+  .x-footer .x-grid {
+    grid-template-areas: "footer-about footer-about footer-about footer-about footer-services footer-services footer-services footer-services" "footer-legal footer-legal footer-legal footer-legal footer-contact footer-contact footer-contact footer-contact" ". footer-logo footer-logo footer-logo footer-logo footer-logo footer-logo .";
+    grid-template-columns: calc(100% / 8 - 5px) calc(100% / 8 - 5px) calc(100% / 8 - 5px) calc(100% / 8 - 5px) calc(100% / 8 - 5px) calc(100% / 8 - 5px) calc(100% / 8 - 5px) calc(100% / 8 - 5px);
+    grid-template-rows: auto auto 300px;
+    justify-items: baseline;
+  }
+  .x-footer .et_pb_module .et_pb_image_wrap img {
+    height: 300px !important;
+  }
+}
+
+/*# sourceMappingURL=style.exp.css.map */

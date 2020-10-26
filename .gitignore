@@ -1,0 +1,18 @@
+# .gitignore
+# indexWebMedia-prod.code-workspace
+
+# divi-children-engine/
+# BCKUP_Before_migration_200417/
+node_modules/
+Fonts/
+
+# includes/
+# font-awesome-4.7.0/
+# img/
+
+.htaccess
+livienpress.code-workspace
+screenshot.jpg
+screenshot.psd
+LICENSE.txt
+
